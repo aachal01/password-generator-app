@@ -137,6 +137,7 @@ input[type=range].styled-slider {
     border: none;
     border-radius: 0;
     background: #18171f;
+    
     box-shadow: none;
   }
   
