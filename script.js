@@ -12,8 +12,8 @@ const checkUppercase = document.getElementById("uppercase")
 const checkLowercase = document.getElementById("lowercase")
 const checkNumber = document.getElementById("number")
 const checkSymbols = document.getElementById("symbols") 
-
-
+const copyButton = document.getElementById("copyButton")
+var finalPass;
 
 let range = slider.value
 rangedis.innerHTML = slider.value
@@ -26,6 +26,8 @@ genButton.addEventListener('click', function(event){
     event.preventDefault()    
     passwordDis.innerHTML = passGen(range)  
 })
+
+
 
 function passGen(length){
     let upperAlpha = ''
@@ -66,5 +68,11 @@ function passGen(length){
         result += finalString[Math.floor(Math.random()* charactersLength)];
     }
     console.log(result)
+    finalPass = result;
     return result;   
 }
+
+copyButton.addEventListener('click', function(){
+    navigator.clipboard.writeText(finalPass);
+    alert("Copied the text: " + finalPass);
+})

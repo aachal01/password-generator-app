@@ -6,37 +6,62 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
+  
   <link rel="stylesheet" href="./styles.css">
   <title>Frontend Mentor | Password generator app</title>
 </head>
 <body>
   <main>
     <div class="main-container">
-      <h3>Password Generator</h3>
+      <h3 class="title">Password Generator</h3>
       <div class="password-display">
         <span id="password">P4$5W0rD!</span>
-        <img src="./images/icon-copy.svg" class="copy-icon">
+        <p class="copied">copied</p>
+        <img src="./images/icon-copy.svg" class="copy-icon" id="copyButton">
       </div>
       <div class="generator-container">
-        <div>Character Length <span>number</span></div>
-        <div class="slidecontainer">
-          <input type="range" min="1" max="20" class="slider" id="myRange">
-          <span id="rangeDisplay"></span>
+        <div class="character-length">Character Length <span id="rangeDisplay">00</span></div>
+        
+          <input type="range" min="1" max="20" class="styled-slider slider-progress" id="myRange">
+        
+        <div class="options">
+          <div class="radio-field">
+            <input type="checkbox" id="uppercase" name="uppercase" value="uppercase">
+            <img class="checkbox-icon" src="./images/icon-check.svg">
+            <label for="uppercase"> Include Uppercase Letters</label>
+          </div>
+
+          <div class="radio-field">
+            <input type="checkbox" id="lowercase" name="lowercase" value="lowercase">
+            <img class="checkbox-icon" src="./images/icon-check.svg">
+            <label for="lowercase"> Include Lowercase Letters</label>
+          </div>
+         
+          <div class="radio-field">
+            <input type="checkbox" id="number" name="number" value="number">
+            <img class="checkbox-icon" src="./images/icon-check.svg">
+            <label for="number"> Include Numbers</label>
+          </div>
+          
+          <div class="radio-field">
+            <input type="checkbox" id="symbols" name="symbols" value="symbols">
+            <img class="checkbox-icon" src="./images/icon-check.svg">
+            <label for="symbols"> Include Symbols</label>
+          </div>       
         </div>
-        <div>
-          <input type="checkbox" id="uppercase" name="uppercase" value="uppercase">
-          <label for="uppercase"> Include Uppercase Letters</label><br>
-          <input type="checkbox" id="lowercase" name="lowercase" value="lowercase">
-          <label for="lowercase"> Include Lowercase Letters</label><br>
-          <input type="checkbox" id="number" name="number" value="number">
-          <label for="number"> Include Numbers</label><br>
-          <input type="checkbox" id="symbols" name="symbols" value="symbols">
-          <label for="symbols"> Include Symbols</label><br>
+        <div id="password-strength">
+          <h3>strength</h3>
+          <p class="password-strength__state"></p>
+          <div class="password-strength__indicator">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
-        <div>
-          STRENGTH <span>TOO WEAK ☐☐☐☐</span>
-        </div>
-        <button id="gen_button">GENERATE <img src="./images/icon-arrow-right.svg" alt=""></button>
+        <button id="gen_button">
+          <span>generate</span>
+          <img src="./images/icon-arrow-right.svg" alt=""></button>
       </div>
     </div>
 

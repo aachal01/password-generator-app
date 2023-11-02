@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;600&family=Overpass:wght@400;700&display=swap');
+
+:root {
+    
+    --clr-red: hsl(0,91%,63%);
+    --clr-neon-green: hsl(127,100%,82%);
+    --clr-orange: hsl(13,95%,66%);
+    --clr-yellow: hsl(42,91%,68%);
+
+    --clr-almost-white: hsl(252,11%,91%);
+    --clr-grey: hsl(251,9%,53%);
+    --clr-dark-grey: hsl(248,10%,15%);
+    --clr-very-dark-grey: hsl(248,15%,11%);  
+
+    --ff-primary: 'JetBrains Mono', monospace;
+
+}
+
+
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -8,6 +28,355 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* smallest height it can go else add scroll */
+    min-height: 100vh; 
+
+    font-family: var(--ff-primary);
+    background-color: var(--clr-very-dark-grey);
+    padding-inline: 1rem;
 }
 
+
+.main-container {
+    flex:1;
+    display: grid;
+    gap: 1rem;
+    max-width: 33.75rem;
+}
+
+.title {
+    font-size: 24px;
+    color: var(--clr-grey);
+    text-align: center;
+}
+
+.password-display{
+    font-size: 1.5em;
+    color: grey;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    background-color: var(--clr-dark-grey);
+    padding: 1.5rem;
+    font-weight: 700;
+}
+
+.copy-icon{
+    cursor: pointer;
+}
+
+.copied {
+    margin-left: auto;
+    text-transform: uppercase;
+    color: var(--clr-neon-green);
+    visibility: hidden;   
+}
+
+.copied.animate {
+    animation: popup 1s;
+}
+
+.generator-container{
+    display: grid;
+    gap: 1.5rem;
+    background-color: var(--clr-dark-grey);
+    padding: 1.5rem;
+}
+
+.character-length{
+    color: var(--clr-almost-white);
+    font-size: 1rem;
+    display: flex;
+    align-items: center ;
+    text-align: left;
+}
+
+#rangeDisplay{
+    color: var(--clr-neon-green);
+    font-size: 1.5em;
+    margin-left: auto;
+}
+
+
+/**SLIDER STYLING **/
+input[type=range].styled-slider {
+    height: 8px;
+    -webkit-appearance: none;
+    background: var(--clr-very-dark-grey);
+    width: 100%;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /*progress support*/
+  input[type=range].styled-slider.slider-progress {
+    --range: calc(var(--max) - var(--min));
+    --ratio: calc((var(--value) - var(--min)) / var(--range));
+    --sx: calc(0.5 * 26px + var(--ratio) * (100% - 26px));
+  }
+  
+  input[type=range].styled-slider:focus {
+    outline: none;
+  }
+  
+  /*webkit*/
+  input[type=range].styled-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #e6e5ea;
+    border: 2px solid #e6e5ea;
+    box-shadow: none;
+    margin-top: calc(8px * 0.5 - max(26px * 0.5,2px));
+  }
+  
+  input[type=range].styled-slider::-webkit-slider-runnable-track {
+    height: 8px;
+    border: none;
+    border-radius: 0;
+    background: #18171f;
+    box-shadow: none;
+  }
+  
+  input[type=range].styled-slider::-webkit-slider-thumb:hover {
+    background: #18171f;
+    border-color: #a4ffaf;
+  }
+  
+  input[type=range].styled-slider::-webkit-slider-thumb:active {
+    background: #18171f;
+    border-color: #a4ffaf;
+  }
+  
+  input[type=range].styled-slider.slider-progress::-webkit-slider-runnable-track {
+    background: linear-gradient(#a4ffaf,#a4ffaf) 0/var(--sx) 100% no-repeat, #18171f;
+  }
+  
+  /*mozilla*/
+  input[type=range].styled-slider::-moz-range-thumb {
+    width: max(calc(26px - 2px - 2px),0px);
+    height: max(calc(26px - 2px - 2px),0px);
+    border-radius: 50%;
+    background: #e6e5ea;
+    border: 2px solid #e6e5ea;
+    box-shadow: none;
+  }
+  
+  input[type=range].styled-slider::-moz-range-track {
+    height: 8px;
+    border: none;
+    border-radius: 0;
+    background: #18171f;
+    box-shadow: none;
+  }
+  
+  input[type=range].styled-slider::-moz-range-thumb:hover {
+    background: #18171f;
+    border-color: #a4ffaf;
+  }
+  
+  input[type=range].styled-slider::-moz-range-thumb:active {
+    background: #18171f;
+    border-color: #a4ffaf;
+  }
+  
+  input[type=range].styled-slider.slider-progress::-moz-range-track {
+    background: linear-gradient(#a4ffaf,#a4ffaf) 0/var(--sx) 100% no-repeat, #18171f;
+  }
+  
+  /*ms*/
+  input[type=range].styled-slider::-ms-fill-upper {
+    background: transparent;
+    border-color: transparent;
+  }
+  
+  input[type=range].styled-slider::-ms-fill-lower {
+    background: transparent;
+    border-color: transparent;
+  }
+  
+  input[type=range].styled-slider::-ms-thumb {
+    width: 26px;
+    height: 26px;
+    border-radius: 14px;
+    background: #e6e5ea;
+    border: 2px solid #e6e5ea;
+    box-shadow: none;
+    margin-top: 0;
+    box-sizing: border-box;
+  }
+  
+  input[type=range].styled-slider::-ms-track {
+    height: 8px;
+    border-radius: 0;
+    background: #18171f;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+  }
+  
+  input[type=range].styled-slider::-ms-thumb:hover {
+    background: #18171f;
+    border-color: #a4ffaf;
+  }
+  
+  input[type=range].styled-slider::-ms-thumb:active {
+    background: #18171f;
+    border-color: #a4ffaf;
+  }
+  
+input[type=range].styled-slider.slider-progress::-ms-fill-lower {
+    height: 8px;
+    border-radius: 0px 0 0 0px;
+    margin: -undefined 0 -undefined -undefined;
+    background: #a4ffaf;
+    border: none;
+    border-right-width: 0;
+}
+
+/**SLIDER STYLING ENDS**/
+
+/* CHECKBOX STYLING STARTS */
+.options {
+    display: grid;
+    gap: 1rem;
+  }
+
+.radio-field {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+  }
+
+
+  .radio-field label {
+    color: var(--clr-almost-white);
+    font-size: 1rem;
+    order: 3;
+  }
+
+
+  input[type=checkbox] {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    color: currentColor;
+    font: inherit;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--clr-almost-white);
+  }
+
+  .checkbox-icon {
+    position: absolute;
+    transform: translateX(20%);
+    display: none;
+    order: 1;
+  }
+
+  input[type=checkbox]:checked {
+    background-color: var(--clr-neon-green);
+    border-color: var(--clr-neon-green);
+    order: 2;
+  }
+
+  input[type=checkbox]:not(:checked):hover {
+    cursor: pointer;
+    border-color: var(--clr-neon-green);
+  }
+
+  input[type=checkbox]:checked + img {
+    display: block;
+  }
+
+  /* CHECKBOX STYLING ENDS */
+
+  #password-strength {
+    background-color: var(--clr-very-dark-grey);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#password-strength h3 {
+    text-transform: uppercase;
+    color: var(--clr-grey);
+    font-size: 1rem;
+}
+
+.password-strength__state {
+    margin-left: auto;
+    text-transform: uppercase;
+    color: var(--clr-almost-white);
+}
+
+.password-strength__indicator {
+    display: flex;
+    gap: .5rem;
+}
+
+.password-strength__indicator > * {
+    width: 10px;
+    height: 28px;
+    border: 2px solid var(--clr-almost-white);
+}
+
+/***/
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--clr-neon-green);
+    border-radius: none;
+    border: none;
+    padding-block: 1.125rem;
+    font-weight: 700;
+}
+
+button > span {
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: var(--clr-very-dark-grey);
+}
+
+/* Button Hover Effect */
+
+button:hover {
+    outline: 2px solid var(--clr-neon-green);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+button:hover span {
+    color: var(--clr-neon-green);
+}
+
+button:hover path {
+    fill: var(--clr-neon-green);
+}
+
+#password-strength.too-weak .password-strength__indicator > div:first-child {
+  background-color: var(--clr-red);
+  border: 2px solid var(--clr-red);
+}
+
+#password-strength.weak .password-strength__indicator > div:is(:first-child,:nth-child(2)){
+  background-color: var(--clr-orange);
+  border: 2px solid var(--clr-orange);
+}
+
+
+#password-strength.medium .password-strength__indicator > div:not(:last-child){
+  background-color: var(--clr-yellow);
+  border: 2px solid var(--clr-yellow);
+}
+
+#password-strength.strong .password-strength__indicator > div{
+  background-color: var(--clr-neon-green);
+  border: 2px solid var(--clr-neon-green);
+}
