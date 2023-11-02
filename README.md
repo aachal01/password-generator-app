@@ -93,4 +93,4 @@ While developing the `script.js` file for the Password Generator web application
 
 ## Live Demo
 
-To experience the full functionality of the Password Generator app, you can visit the live demo by clicking [here](#demo-link).
+To experience the full functionality of the Password Generator app, you can visit the live demo by clicking [here](https://aachal01.github.io/password-generator-app/).
